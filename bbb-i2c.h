@@ -26,6 +26,12 @@
 using std::string;
 
 
+// BBB I2C Bus File Names
+#define BBB_I2C0_FILE  "/dev/i2c-0"
+#define BBB_I2C1_FILE  "/dev/i2c-1"
+#define BBB_I2C2_FILE  "/dev/i2c-2"
+
+
 namespace bbbi2c
 {
 
