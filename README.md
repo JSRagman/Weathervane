@@ -11,6 +11,6 @@ Displays the current temperature and barometric pressure, along with the high-, 
 * Bottle of Aspirin
 
 ### Status
-*In Progress... Not ready for prime time.*
+*In Progress... Headers and device drivers are good to go. Body on the way*
 
 Actually, the code has been compiled, linked, uploaded and spanked, and has been working joyfully with the hardware for several days now. However, the notion that someone else might see it has motivated me to give it a bit more scrutiny.
