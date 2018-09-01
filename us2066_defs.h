@@ -31,6 +31,9 @@
 #ifndef US2066_DEFS_H_
 #define US2066_DEFS_H_
 
+// Display I2C Address:
+#define US2066_I2C0          0x3C
+#define US2066_I2C1          0x3D
 
 // Display ON/OFF Control
 #define US2066_OFF           0x08   //**POR. Display off.
