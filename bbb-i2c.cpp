@@ -2,7 +2,7 @@
  * bbb-i2c.cpp
  *
  *  Created on: Aug 26, 2018
- *      Author: JRagman
+ *      Author: JSRagman
  *
  *  Description:
  *    Implements BeagleBone Black I2C bus and supporting classes.
