@@ -23,9 +23,6 @@
  *    He is, however, grateful for the professional help that he
  *    received on their forum. He is extremely grateful that they
  *    declined to laugh at his truly rediculous mistakes.
- *
- *    It almost makes up for the fact that their NHD_US2066 repository
- *    is written for Arduino.
  */
 
 #ifndef US2066_DEFS_H_
