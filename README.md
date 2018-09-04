@@ -11,5 +11,5 @@ Displays the current temperature and barometric pressure, along with the high-, 
 * Bottle of ~~Aspirin~~ Whiskey
 
 ### Status
-* Headers and device drivers are good to go
-* Body is on hold while I learn to use Git desktop tools
+* Splitting device drivers into separate repositories
+* The Weatervane body will wind up here
