@@ -8,7 +8,7 @@ Displays the current temperature and barometric pressure, along with the high-, 
 * BeagleBone Black, Rev C
 * Bosch Sensortec BMP280 Digital Pressure Sensor (on Adafruit BMP280 breakout board)
 * Newhaven Display NHD-0420CW-AB3 4x20 Character OLED Display Module
-* Bottle of ~~Aspirin~~ Whiskey
+* Bottle of ~~Aspirin~~ ~~Whiskey~~ Laudanum
 
 ### Device drivers
 * BeagleBone-Black-I2C
@@ -18,3 +18,5 @@ Displays the current temperature and barometric pressure, along with the high-, 
 ### Status
 * ~~Splitting device drivers into separate repositories~~ Done
 * The Weatervane body will wind up here
+* Weathervane has become a moving target, but is still under
+  active development.
