@@ -1,8 +1,12 @@
+```
 /*
  * wvane.cpp
  *
  *  Created on: Sep 5, 2018
  *      Author: JSRagman
+ *
+ *  Updated:
+ *    Sep 12, 2018
  *
  *  Description:
  *    Weathervane, Rev D
@@ -49,13 +53,13 @@ unsigned int  readperiod;
  */
 string FormatTime(time_t thetime)
 {
-	struct tm* tinfo = localtime(&thetime);
+    struct tm* tinfo = localtime(&thetime);
 
     stringstream sstime;
     sstime << setprecision(0) << tinfo->tm_hour << ":";
     if (tinfo->tm_min < 10)
     {
-    	sstime << "0";
+        sstime << "0";
     }
     sstime << tinfo->tm_min;
 
@@ -70,23 +74,23 @@ string FormatTime(time_t thetime)
  */
 void UpdateDisplay(TP32Data rdg)
 {
-	char degchar  = 0xDF;  // degrees character
+    char degchar  = 0xDF;  // degrees character
     char inchchar = 0x22;  // inches character
 
     double temp      = 9.0*(rdg.temperature/500.0) + 32.0;
-	double press     = rdg.pressure/3386.39;
-	double highpress = datacue.pressure_high()/3386.39;
-	double lowpress  = datacue.pressure_low()/3386.39;
-	double avgpress  = datacue.pressure_average()/3386.39;
+    double press     = rdg.pressure/3386.39;
+    double highpress = datacue.pressure_high()/3386.39;
+    double lowpress  = datacue.pressure_low()/3386.39;
+    double avgpress  = datacue.pressure_average()/3386.39;
 
-	stringstream sshg, sshigh, sslow, ssavg, sstemp;
+    stringstream sshg, sshigh, sslow, ssavg, sstemp;
 
-	sstemp << dec << fixed << setprecision(1) << temp << degchar;
+    sstemp << dec << fixed << setprecision(1) << temp << degchar;
 
-	sshg   << "* " << dec << fixed << setprecision(2) << press << inchchar << " Hg";
-	sshigh << "H " << dec << fixed << setprecision(2) << highpress;
-	ssavg  << "A " << dec << fixed << setprecision(2) << lowpress;
-	sslow  << "L " << dec << fixed << setprecision(2) << avgpress;
+    sshg   << "* " << dec << fixed << setprecision(2) << press << inchchar << " Hg";
+    sshigh << "H " << dec << fixed << setprecision(2) << highpress;
+    ssavg  << "A " << dec << fixed << setprecision(2) << lowpress;
+    sslow  << "L " << dec << fixed << setprecision(2) << avgpress;
 
     display.Clear();
     display.Data(sshg.str());
@@ -103,7 +107,7 @@ void UpdateDisplay(TP32Data rdg)
     display.SetPosition(3,15);
     display.Data(FormatTime(datacue.timestart()));
 
-	time_t timer = time(nullptr);
+    time_t timer = time(nullptr);
     display.SetPosition(4,15);
     display.Data(FormatTime(timer));
 }
@@ -126,26 +130,26 @@ void UpdateDisplay(TP32Data rdg)
  */
 void ReadSensorProc()
 {
-	if (readperiod <= 0)
-		return;
+    if (readperiod <= 0)
+        return;
 
-	do
-	{
-		sensor.Force();
-		this_thread::sleep_for(milliseconds(45));
+    do
+    {
+        sensor.Force();
+        this_thread::sleep_for(milliseconds(45));
 
-		TP32Data reading = sensor.GetComp32FixedData();
+        TP32Data reading = sensor.GetComp32FixedData();
 
-		if (true)                                // lock_guard scope
-		{
-			lock_guard<mutex> lck(datacue.mtx);
-			datacue.push(reading);
-		}
+        if (true)                                // lock_guard scope
+        {
+            lock_guard<mutex> lck(datacue.mtx);
+            datacue.push(reading);
+        }
 
-		UpdateDisplay(reading);
-		this_thread::sleep_for(seconds{readperiod});
+        UpdateDisplay(reading);
+        this_thread::sleep_for(seconds{readperiod});
 
-	} while (readperiod > 0);
+    } while (readperiod > 0);
 }
 
 
@@ -164,23 +168,23 @@ void ReadSensorProc()
  */
 int main(int argc, char* argv[])
 {
-	display.Init();                              // 1.
+    display.Init();                              // 1.
     display.Data("Weathervane...");
     display.On();
 
-	readperiod = 60;                             // 2.
-	sensor.SetConfig(3);
+    readperiod = 60;                             // 2.
+    sensor.SetConfig(3);
 
-	this_thread::sleep_for(seconds{10});         // 3.
+    this_thread::sleep_for(seconds{10});         // 3.
 
     thread t1 {ReadSensorProc};                  // 4.
 
     string cmd = "";                             // 5.
     while (cmd != "q")
     {
-    	cout << "Weathervane: ";
-    	cin >> cmd;
-    	//ExecuteCommand(cmd);
+        cout << "Weathervane: ";
+        cin >> cmd;
+        //ExecuteCommand(cmd);
     }                                            // 6.
 
     cout << endl << "Exiting Weathervane...";
@@ -193,25 +197,4 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
