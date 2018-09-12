@@ -16,7 +16,4 @@ Displays the current temperature and barometric pressure, along with the high-, 
 * NHD-0420CW
 
 ### Status
-* ~~Splitting device drivers into separate repositories~~ Done
-* The Weatervane body will wind up here
-* Weathervane has become a moving target, but is still under
-  active development.
+* Run testing.
