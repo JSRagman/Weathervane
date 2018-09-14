@@ -9,7 +9,7 @@ Displays the current temperature and barometric pressure, along with the high-, 
 * Bosch Sensortec BMP280 Digital Pressure Sensor (on Adafruit BMP280 breakout board)
 * Newhaven Display NHD-0420CW-AB3 4x20 Character OLED Display Module
 
-### Device drivers
+### Device Drivers Used
 * BeagleBone-Black-I2C
 * BMP280
 * NHD-0420CW
