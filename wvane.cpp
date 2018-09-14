@@ -89,8 +89,8 @@ void UpdateDisplay(TP32Data rdg)
 
     sshg   << "* " << dec << fixed << setprecision(2) << press << inchchar << " Hg";
     sshigh << "H " << dec << fixed << setprecision(2) << highpress;
-    ssavg  << "A " << dec << fixed << setprecision(2) << lowpress;
-    sslow  << "L " << dec << fixed << setprecision(2) << avgpress;
+    ssavg  << "A " << dec << fixed << setprecision(2) << avgpress;
+    sslow  << "L " << dec << fixed << setprecision(2) << lowpress;
 
     display.Clear();
     display.Data(sshg.str());
